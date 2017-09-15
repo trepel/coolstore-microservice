@@ -22,7 +22,7 @@
             "description": "Git source URI for application",
             "displayName": "Git repository",
             "name": "GIT_URI",
-            "value": "https://github.com/jbossdemocentral/coolstore-microservice",
+            "value": "https://github.com/trepel/coolstore-microservice",
             "required": true
         },
         {

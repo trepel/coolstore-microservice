@@ -153,7 +153,7 @@ PRJ_INVENTORY=inventory-dev-$PRJ_SUFFIX
 PRJ_DEVELOPER=developer-$PRJ_SUFFIX
 
 # config
-GITHUB_ACCOUNT=${GITHUB_ACCOUNT:-jbossdemocentral}
+GITHUB_ACCOUNT=${GITHUB_ACCOUNT:-trepel}
 GITHUB_REF=${GITHUB_REF:-1.0.x}
 GITHUB_URI=https://github.com/$GITHUB_ACCOUNT/coolstore-microservice.git
 
@@ -324,7 +324,7 @@ function add_inventory_template_to_projects() {
   local _TEMPLATE=https://raw.githubusercontent.com/$GITHUB_ACCOUNT/coolstore-microservice/$GITHUB_REF/openshift/templates/inventory-template.json
   curl -sL $_TEMPLATE | tr -d '\n' | tr -s '[:space:]' \
     | sed "s|\"MAVEN_MIRROR_URL\", \"value\": \"\"|\"MAVEN_MIRROR_URL\", \"value\": \"$MAVEN_MIRROR_URL\"|g" \
-    | sed "s|\"https://github.com/jbossdemocentral/coolstore-microservice\"|\"http://$GOGS_ROUTE/$GOGS_USER/coolstore-microservice.git\"|g" \
+    | sed "s|\"https://github.com/trepel/coolstore-microservice\"|\"http://$GOGS_ROUTE/$GOGS_USER/coolstore-microservice.git\"|g" \
     | sed "s|1.0.x|master|g" \
     | oc create -f - -n $PRJ_DEVELOPER
 }
@@ -358,9 +358,9 @@ function wait_for_nexus_to_be_ready() {
 function deploy_gogs() {
   echo_header "Deploying Gogs git server..."
   
-  local _TEMPLATE="https://raw.githubusercontent.com/OpenShiftDemos/gogs-openshift-docker/master/openshift/gogs-persistent-template.yaml"
+  local _TEMPLATE="https://raw.githubusercontent.com/OpenShiftDemos/gogs-openshift-docker/binary/openshift/gogs-persistent-template.yaml"
   if [ "$ARG_EPHEMERAL" = true ] ; then
-    _TEMPLATE="https://raw.githubusercontent.com/OpenShiftDemos/gogs-openshift-docker/master/openshift/gogs-template.yaml"
+    _TEMPLATE="https://raw.githubusercontent.com/OpenShiftDemos/gogs-openshift-docker/binary/openshift/gogs-template.yaml"
   fi
 
   local _DB_USER=gogs
