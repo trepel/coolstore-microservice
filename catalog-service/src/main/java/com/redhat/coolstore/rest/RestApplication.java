@@ -2,6 +2,9 @@ package com.redhat.coolstore.rest;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
+
+import org.jboss.resteasy.plugins.interceptors.CorsFilter;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,6 +16,7 @@ public class RestApplication extends Application {
         Set<Class<?>> resources = new HashSet();
 
         resources.add(CatalogEndpoint.class);
+        resources.add(CorsFilter.class);
         resources.add(io.swagger.jaxrs.listing.ApiListingResource.class);
         resources.add(io.swagger.jaxrs.listing.SwaggerSerializers.class);
 
