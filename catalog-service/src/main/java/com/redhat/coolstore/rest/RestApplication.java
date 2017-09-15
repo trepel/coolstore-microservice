@@ -2,9 +2,6 @@ package com.redhat.coolstore.rest;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
-
-import org.jboss.resteasy.plugins.interceptors.CorsFilter;
-
 import java.util.HashSet;
 import java.util.Set;
 
