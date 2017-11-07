@@ -4,7 +4,7 @@
     "James Falkner <jfalkner@redhat.com> (https://developers.redhat.com)"
   ],
   "name": "coolstore-ui",
-  "repository": "jbossdemocentral/coolstore-microservice",
+  "repository": "trepel/coolstore-microservice",
   "version": "1.0.0",
   "license": "Apache-2.0",
   "private": true,
